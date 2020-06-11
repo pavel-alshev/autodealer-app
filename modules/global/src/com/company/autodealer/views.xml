@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="autodealer_ExtUser"
+          name="user.browse"
+          extends="user.browse">
+        <property name="country" view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+    <view entity="autodealer_ExtUser"
+          name="user.edit"
+          extends="user.edit">
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="autodealer_Manufacturer" name="manufacturer-browse-view" extends="_local">
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="autodealer_Manufacturer" name="manufacturer-edit-view" extends="_local">
+        <property name="country" view="_minimal"/>
+    </view>
+</views>

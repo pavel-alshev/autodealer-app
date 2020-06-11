@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.autodealer.web.screens.vehicle">
+    <data>
+        <instance id="vehicleDc"
+                    class="com.company.autodealer.entity.Vehicle"
+                    view="vehicle-edit">
+            <loader/>
+        </instance>
+        
+                <collection id="manufacturersDc" class="com.company.autodealer.entity.Manufacturer" view="_minimal">
+                    <loader id="manufacturersLc">
+                        <query>
+                            <![CDATA[select e from autodealer_Manufacturer e]]>
+                        </query>
+                    </loader>
+                </collection>
+        
+                <collection id="vehiclemodelsDc" class="com.company.autodealer.entity.VehicleModel" view="_minimal">
+                    <loader id="vehiclemodelsLc">
+                        <query>
+                            <![CDATA[select e from autodealer_VehicleModel e]]>
+                        </query>
+                    </loader>
+                </collection>
+        
+                <collection id="vehicleequipmentsDc" class="com.company.autodealer.entity.VehicleEquipment" view="_minimal">
+                    <loader id="vehicleequipmentsLc">
+                        <query>
+                            <![CDATA[select e from autodealer_VehicleEquipment e]]>
+                        </query>
+                    </loader>
+                </collection>
+        
+    </data>
+    
+    <dialogMode height="600"
+                width="800"/>
+<layout expand="editActions" spacing="true">
+    
+        
+
+<form id="form" dataContainer="vehicleDc">
+<column width="250px">
+	
+	<lookupPickerField id="manufacturerField" optionsContainer="manufacturersDc" property="manufacturer"/>
+	
+	<lookupPickerField id="vehiclemodelField" optionsContainer="vehiclemodelsDc" property="vehiclemodel"/>
+	
+	<lookupPickerField id="vehicleequipmentField" optionsContainer="vehicleequipmentsDc" property="vehicleequipment"/>
+	
+	<dateField id="yearofissueField" property="yearofissue"/>
+	
+</column>
+</form>
+
+        
+        
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
